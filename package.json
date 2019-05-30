@@ -1,0 +1,27 @@
+{
+  "name": "subwooferjs",
+  "version": "1.0.0",
+  "description": "subwoofer core functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier-watch": "onchange '**/*.js' -- prettier --write {{changed}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weisinator/subwooferjs.git"
+  },
+  "keywords": [
+    "subwoofer"
+  ],
+  "author": "Timothy J Weis",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/weisinator/subwooferjs/issues"
+  },
+  "homepage": "https://github.com/weisinator/subwooferjs#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "prettier": "1.17.1"
+  }
+}

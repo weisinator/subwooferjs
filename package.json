@@ -1,6 +1,6 @@
 {
   "name": "subwooferjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "subwoofer core functionality",
   "main": "src",
   "scripts": {
@@ -27,6 +27,7 @@
     "prettier": "1.17.1"
   },
   "dependencies": {
-    "convert-units": "^2.3.4"
+    "convert-units": "^2.3.4",
+    "round": "^2.0.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "subwooferjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "subwoofer core functionality",
   "main": "src",
   "scripts": {
@@ -22,9 +22,9 @@
   "homepage": "https://github.com/weisinator/subwooferjs#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "mocha": "^6.1.4",
-    "prettier": "1.17.1"
+    "eslint": "^6.1.0",
+    "mocha": "^6.2.0",
+    "prettier": "1.18.2"
   },
   "dependencies": {
     "convert-units": "^2.3.4",

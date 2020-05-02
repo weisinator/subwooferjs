@@ -1,5 +1,6 @@
 const convert = require('convert-units');
-
+const subwoofer = require('./subwoofer');
+const enclosure = require('./enclosure');
 function driver(qts, vas, fs, xmax, sd, nominalDiameterAndShape, znom=-1, numvc = -1, qms=-1, qes=-1,)  {
     this.qts = qts;
     this.qms = qms;
@@ -24,6 +25,25 @@ function driver(qts, vas, fs, xmax, sd, nominalDiameterAndShape, znom=-1, numvc 
     this.peakDisplacementVolume = function() {
         return convert(this.sd).from('cm2').to('m2') 
             * convert(this.xmax).from('mm').to('m'); 
+    }
+    this.maximallyFlatPortedSubwoofer = function(){
+        let vb = 20 * Math.pow(this.qts, 3.3) * this.vas; 
+        let fb = Math.pow((this.vas/vb), 0.31) * this.fs;
+        var enclosure = new enclosure(vb, fb);
+        return new subwoofer(this, enclosure);
+    }
+    this.extendedBassShelfPortedSubwoofer = function(){
+        let vb = 7.95 * this.vas * Math.pow(this.qts, 2.21);
+        let fb = 0.471 * this.fs * Math.pow(this.qts, -0.677);
+        let enclosure = new enclosure(vb, fb);
+        return new subwoofer(this, enclosure);
+    }
+    this.maximallyFlatSealedSubwoofer = function(){
+        let qr = (Math.sqrt(2) / 2) / this.qts;
+        let vr = Math.pow(qr, 2) - 1;
+        let vb = this.vas/vr;
+        var enclosure = new enclosure(vb);
+        return new subwoofer(this, enclosure);
     }
 }
 module.exports = driver;

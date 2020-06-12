@@ -1,4 +1,4 @@
-enclosure = function (vb, fb=-1) {
+function enclosure (vb, fb=-1) {
     this.vb = vb;
     this.fb = fb; // ported
 }

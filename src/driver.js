@@ -29,21 +29,21 @@ function driver(qts, vas, fs, xmax, sd, nominalDiameterAndShape, znom=-1, numvc 
     this.maximallyFlatPortedSubwoofer = function(){
         let vb = 20 * Math.pow(this.qts, 3.3) * this.vas; 
         let fb = Math.pow((this.vas/vb), 0.31) * this.fs;
-        var enclosure = new enclosure(vb, fb);
-        return new subwoofer(this, enclosure);
+        var encl = new enclosure(vb, fb);
+        return new subwoofer(this, encl);
     }
     this.extendedBassShelfPortedSubwoofer = function(){
         let vb = 7.95 * this.vas * Math.pow(this.qts, 2.21);
         let fb = 0.471 * this.fs * Math.pow(this.qts, -0.677);
-        let enclosure = new enclosure(vb, fb);
-        return new subwoofer(this, enclosure);
+        let encl = new enclosure(vb, fb);
+        return new subwoofer(this, encl);
     }
     this.maximallyFlatSealedSubwoofer = function(){
         let qr = (Math.sqrt(2) / 2) / this.qts;
         let vr = Math.pow(qr, 2) - 1;
         let vb = this.vas/vr;
-        var enclosure = new enclosure(vb);
-        return new subwoofer(this, enclosure);
+        let encl = new enclosure(vb);
+        return new subwoofer(this, encl);
     }
 }
 module.exports = driver;
